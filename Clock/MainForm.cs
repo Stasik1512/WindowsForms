@@ -12,10 +12,14 @@ namespace Clock
 {
     public partial class MainForm : Form
     {
+        ColorDialog backgroundColorDialog;
+        ColorDialog foregroundColorDialog;
         public MainForm()
         {
             InitializeComponent();
-            tsmiShowControls.Checked = true;
+            SetVisibility(tsmiShowControls.Checked = false);
+            backgroundColorDialog = new ColorDialog();
+            foregroundColorDialog = new ColorDialog();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -78,6 +82,18 @@ namespace Clock
                 this.TopMost = true;
                 this.TopMost = false;  
             }
+        }
+
+        private void tsmiBackgroundColor_Click(object sender, EventArgs e)
+        {
+            if (backgroundColorDialog.ShowDialog() == DialogResult.OK)
+                LabelTime.BackColor = backgroundColorDialog.Color;
+        }
+
+        private void tsmiForegoundColor_Click(object sender, EventArgs e)
+        {
+            if (foregroundColorDialog.ShowDialog() == DialogResult.OK)
+                LabelTime.ForeColor = foregroundColorDialog.Color;
         }
     }
 }
