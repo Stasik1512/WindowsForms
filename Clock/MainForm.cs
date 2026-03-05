@@ -27,6 +27,7 @@ namespace Clock
             LabelTime.Text = DateTime.Now.ToString("HH:mm:ss");
             if (cbShowDate.Checked) LabelTime.Text += $"\n{DateTime.Now.ToString("yyyy.MM.dd")}";
             if (cbShowWeekday.Checked) LabelTime.Text += $"\n{DateTime.Now.DayOfWeek}";
+            notifyIcon.Text = LabelTime.Text;
         }
         void SetVisibility(bool visible)
         {
@@ -49,5 +50,4 @@ namespace Clock
         }
     }
 }
-// YG
 
