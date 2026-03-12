@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
+using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
-using System.Drawing.Text;
-using System.Linq.Expressions;
+using static System.Net.WebRequestMethods;
 
 namespace Clock
 {
@@ -19,7 +20,8 @@ namespace Clock
         public FontDialog()
         {
             InitializeComponent();
-            LoadFonts();
+            //LoadFonts();
+            Travers($"{Application.ExecutablePath}\\..\\..\\..\\Fonts");
         }
         
         public FontDialog(MainForm parent):this()
@@ -31,6 +33,16 @@ namespace Clock
         {
 
             this.Location = new Point(parent.Location.X - this.Width/3, parent.Location.Y+80);
+            
+        }
+        void Travers(string path)
+        {
+            Console.WriteLine(path);
+            LoadFonts(path, "*.ttf");
+            LoadFonts(path, "*.otf");
+            string[] directories = Directory.GetDirectories(path);
+            for (int i = 0; i < directories.Length; i++)
+                Travers(directories[i]);
             
         }
         void LoadFonts()
