@@ -181,6 +181,7 @@
             this.tsmiAutostart.Name = "tsmiAutostart";
             this.tsmiAutostart.Size = new System.Drawing.Size(180, 22);
             this.tsmiAutostart.Text = "Autostart";
+            this.tsmiAutostart.CheckedChanged += new System.EventHandler(this.tsmiAutostart_CheckedChanged);
             // 
             // tsmiClose
             // 
