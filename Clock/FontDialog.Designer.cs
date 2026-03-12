@@ -30,9 +30,10 @@
         {
             this.comboBoxFonts = new System.Windows.Forms.ComboBox();
             this.nudFontSize = new System.Windows.Forms.NumericUpDown();
-            this.labeExemple = new System.Windows.Forms.Label();
+            this.labelExemple = new System.Windows.Forms.Label();
             this.buttonOK = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
+            this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
             ((System.ComponentModel.ISupportInitialize)(this.nudFontSize)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,13 +73,13 @@
             // 
             // labeExemple
             // 
-            this.labeExemple.AutoSize = true;
-            this.labeExemple.Font = new System.Drawing.Font("Microsoft Sans Serif", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labeExemple.Location = new System.Drawing.Point(12, 35);
-            this.labeExemple.Name = "labeExemple";
-            this.labeExemple.Size = new System.Drawing.Size(191, 51);
-            this.labeExemple.TabIndex = 2;
-            this.labeExemple.Text = "Exemple";
+            this.labelExemple.AutoSize = true;
+            this.labelExemple.Font = new System.Drawing.Font("Microsoft Sans Serif", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelExemple.Location = new System.Drawing.Point(12, 35);
+            this.labelExemple.Name = "labeExemple";
+            this.labelExemple.Size = new System.Drawing.Size(191, 51);
+            this.labelExemple.TabIndex = 2;
+            this.labelExemple.Text = "Exemple";
             // 
             // buttonOK
             // 
@@ -108,7 +109,7 @@
             this.ClientSize = new System.Drawing.Size(430, 135);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOK);
-            this.Controls.Add(this.labeExemple);
+            this.Controls.Add(this.labelExemple);
             this.Controls.Add(this.nudFontSize);
             this.Controls.Add(this.comboBoxFonts);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -126,8 +127,9 @@
 
         private System.Windows.Forms.ComboBox comboBoxFonts;
         private System.Windows.Forms.NumericUpDown nudFontSize;
-        private System.Windows.Forms.Label labeExemple;
+        private System.Windows.Forms.Label labelExemple;
         private System.Windows.Forms.Button buttonOK;
         private System.Windows.Forms.Button buttonCancel;
+        private System.DirectoryServices.DirectoryEntry directoryEntry1;
     }
 }

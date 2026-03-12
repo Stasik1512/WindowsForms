@@ -18,6 +18,8 @@ namespace Clock
     {
         MainForm parent;
         Dictionary<string, string> d_fonts; // словаь(дерево) структура данный которая хранит множество пар <Ключ -- значения> <Key -- Value>
+        
+        public Font Font {  get; set; } // объявляем автосвойства 'Font', 'Font';
         public FontDialog()
         {
             InitializeComponent();
@@ -76,7 +78,7 @@ namespace Clock
             PrivateFontCollection ptc = new PrivateFontCollection();
             ptc.AddFontFile(d_fonts[comboBoxFonts.SelectedItem.ToString()]);
             //ptc.AddFontFile(comboBoxFonts.SelectedItem.ToString());
-            labeExemple.Font = new Font(ptc.Families[0],(float)nudFontSize.Value);
+            labelExemple.Font = new Font(ptc.Families[0],(float)nudFontSize.Value);
 
         }
         private void comboBoxFonts_SelectedIndexChanged(object sender, EventArgs e)
@@ -92,7 +94,7 @@ namespace Clock
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            this.Font = labelExemple.Font;
         }
     } 
 }
