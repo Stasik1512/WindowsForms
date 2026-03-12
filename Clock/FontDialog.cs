@@ -17,13 +17,17 @@ namespace Clock
     public partial class FontDialog : Form
     {
         MainForm parent;
+        Dictionary<string, string> d_fonts; // словаь(дерево) структура данный которая хранит множество пар <Ключ -- значения> <Key -- Value>
         public FontDialog()
         {
             InitializeComponent();
             //LoadFonts();
+            d_fonts = new Dictionary<string, string>();
             Travers($"{Application.ExecutablePath}\\..\\..\\..\\Fonts");
+            comboBoxFonts.Items.AddRange(d_fonts.Keys.ToArray());
+
         }
-        
+
         public FontDialog(MainForm parent):this()
         {
             this.parent = parent;
@@ -60,16 +64,18 @@ namespace Clock
             string[] files = Directory.GetFiles(path, format);
             for (int i = 0; i < files.Length; i++)
             {
-                files[i] = files[i].Split('\\').Last();
+                d_fonts.Add(files[i].Split('\\').Last(), files[i]);
+                //files[i] = files[i].Split('\\').Last();
             }
-            comboBoxFonts.Items.AddRange(files);
+            //comboBoxFonts.Items.AddRange(files);
             
         }
 
         void ApplyFontExemple()
         {
             PrivateFontCollection ptc = new PrivateFontCollection();
-            ptc.AddFontFile(comboBoxFonts.SelectedItem.ToString());
+            ptc.AddFontFile(d_fonts[comboBoxFonts.SelectedItem.ToString()]);
+            //ptc.AddFontFile(comboBoxFonts.SelectedItem.ToString());
             labeExemple.Font = new Font(ptc.Families[0],(float)nudFontSize.Value);
 
         }
